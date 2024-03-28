@@ -1,23 +1,30 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+<meta charset="utf-8">
+<meta name="viewport"
+		content="width=device-width,
+				initial-scale=1">
+<meta http-equiv="X-UA-Compatible"
+		content="ie=edge">
+
+<title>PWA Tutorial</title>
+
+<meta name="apple-mobile-web-app-status-bar"content="#aa7700">
+<meta name="theme-color"content="black">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- Font Owesome icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
-    <!-- Default main Css -->
-    <link rel="stylesheet" href="style.css">
 
-    <title>Colorib Dream Theme | Web Design Lab</title>
+<link rel="stylesheet" href="style.css">
+<!-- Manifest File link -->
+<link rel="manifest"href="manifest.json">
+
 </head>
 
 <body>
@@ -381,25 +388,28 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
         <script>
-            window.addEventListener("load", () => {
-              registerSW();
+            window.addEventListener('load', () => {
+            registerSW();
             });
-     
+        
             // Register the Service Worker
             async function registerSW() {
-              if ("serviceWorker" in navigator) {
+            if ('serviceWorker' in navigator) {
                 try {
-                  await navigator;
-                  ServiceWorker;
-                  register("serviceworker.js");
-                } catch (e) {
-                  console.log("SW Registration Failed.");
+                await navigator
+                        .serviceWorker
+                        .register('serviceworker.js');
                 }
-              }
+                catch (e) {
+                console.log('SW registration failed');
+                }
             }
-          </script>
+            }
+        </script>
+        
     
 
 </body>

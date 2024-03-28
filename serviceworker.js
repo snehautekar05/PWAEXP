@@ -1,4 +1,3 @@
-
 var staticCacheName = "pwa";
 
 self.addEventListener("install", function (e) {
@@ -7,20 +6,6 @@ self.addEventListener("install", function (e) {
       return cache.addAll(["/"]);
     })
   );
-});
-
-self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.filter(name => {
-                    return name !== staticCacheName;
-                }).map(name => {
-                    return caches.delete(name);
-                })
-            );
-        })
-    );
 });
 
 self.addEventListener("fetch", function (event) {

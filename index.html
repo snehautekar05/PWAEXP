@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible"
 		content="ie=edge">
 
-<title>PWA Tutorial</title>
+<title>Driving Website</title>
 
 <meta name="apple-mobile-web-app-status-bar"content="#aa7700">
 <meta name="theme-color"content="black">
@@ -389,28 +389,19 @@
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous">
     </script>
+        <script src=”./app.js”></script> 
         <script>
-            window.addEventListener('load', () => {
-            registerSW();
+            if ('Notification' in window) {
+            Notification.requestPermission().then(function (result) {
+                if (result === 'granted') {
+                    console.log('Notification permission granted');
+                } else {
+                    console.warn('Notification permission denied');
+                }
             });
+        }
+    </script>
         
-            // Register the Service Worker
-            async function registerSW() {
-            if ('serviceWorker' in navigator) {
-                try {
-                await navigator
-                        .serviceWorker
-                        .register('serviceworker.js');
-                }
-                catch (e) {
-                console.log('SW registration failed');
-                }
-            }
-            }
-        </script>
-        
-    
-
 </body>
 
 </html>
